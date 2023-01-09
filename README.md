@@ -10,3 +10,9 @@ download of the data needed for the RT1 to RT2 migration tool.
 The folder [creation_date](creation_date/) has a virtual EPrints field that will search the history dataset for
 the first entry relating to the EPrint - which should be the creation date of that specific record.
 
+This can be referenced in the harvest crosswalk as:
+```
+<xwalk:field-mapping to="record-created-at-source-date">
+  <xwalk:field-source from="creation_date" />
+</xwalk:field-mapping>
+```
