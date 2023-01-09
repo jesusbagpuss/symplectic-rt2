@@ -1,0 +1,58 @@
+# save this file as: ~/archives/ARCHIVEID/cgi/symplectic_RT2_CSV
+#
+# A request for https://repo.url/cgi/symplectic_RT2_CSV will download a CSV file containing:
+# pid, eprintid, submission eprintid
+# as documented in the README_DBMigrateRepositoryTools_EPrints.pdf guide.
+#
+
+use EPrints;
+
+use strict;
+use warnings;
+
+my $session = EPrints::Session->new();
+
+my $ip = $session->get_repository->remote_ip;
+
+my $user = $session->current_user;
+
+# Access is restricted to the following IP addresses, and 'staff' repo users:
+# 91.132.4.142 is Symplectic VPN
+# 188.40.113.121 is Symplectic hosting
+#
+
+if( ( $ip !~ /^(188\.40\.113\.121|91\.132\.4\.142)$/ ) && ( !defined $user || !$user->is_staff ) )
+{
+        print "$ip NOT ALLOWED";
+        $session->terminate;
+        exit;
+}
+
+my $sql = "SELECT pid, eprint_id,";
+$sql .= " CASE WHEN submission_eprint_id IS NOT NULL THEN submission_eprint_id ELSE eprint_id END AS submission_id";
+$sql .= " FROM symplectic_pids";
+
+my $sth = $session->get_database->prepare_select( $sql );
+$session->get_database->execute( $sth , $sql );
+
+$session->send_http_header( content_type => "text/csv; charset=UTF-8" );
+EPrints::Apache::AnApache::header_out(
+        $session->get_request,
+        "Content-Disposition" => "attachment; filename=symplectic_RT2_CSV.csv",
+);
+
+my( $pid, $epid, $epsid );
+
+# column names
+print "pid,item_id,submission_id\n";
+
+$sth->bind_columns(\($pid, $epid, $epsid));
+while ($sth->fetch) {
+  print join( ',',
+    ( defined $pid ? $pid : '' ),
+    ( defined $epid ? $epid: '' ),
+    ( defined $epsid ? $epsid : '' ),
+  ), "\n";
+}
+
+$session->terminate;
