@@ -1,5 +1,8 @@
 # symplectic-rt2
-Collection of code snippets that may be useful for others connecting EPrints and Symplectic Elements via RT2
+Collection of code snippets that may be useful for others connecting EPrints and Symplectic Elements via RT2.
+
+As EPrints can be configured in many strange/curious/interesting ways, I'm not recommending any of these - but
+I hope that they may be a good starting point for others.
 
 ## CSV Export (for migration tool)
 The script [cgi/symplectic_RT2_CSV](cgi/symplectic_RT2_CSV) can be added to an EPrints repository to allows easy 
