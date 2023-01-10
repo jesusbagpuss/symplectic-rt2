@@ -1,0 +1,40 @@
+<xwalk:field-mapping to="symplectic_actors" is-list="true">
+  <xwalk:field-source>
+    <xwalk:if>
+      <xwalk:condition operator="has-value" argument-field="depositor.id" />
+      <xwalk:result>
+        <xwalk:field-source subfield="name">
+          <xwalk:field-source subfield="family" from="depositor.last-name" />
+          <xwalk:field-source subfield="given" from="depositor.first-name" />
+        </xwalk:field-source>
+        <xwalk:field-source subfield="email" from="depositor.email-address" />
+        <xwalk:field-source subfield="role">
+          <xwalk:if>
+            <xwalk:condition operator="equals" argument-field="depositor.is-impersonating">true</xwalk:condition>
+            <xwalk:result>
+              <xwalk:field-source value="impersonator" />
+            </xwalk:result>
+            <xwalk:else>
+              <xwalk:result>
+                <xwalk:field-source value="owner" />
+              </xwalk:result>
+            </xwalk:else>
+          </xwalk:if>
+        </xwalk:field-source>
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-source>
+  <xwalk:field-source>
+    <xwalk:if>
+      <xwalk:condition operator="has-value" argument-field="impersonated-depositor.id" />
+      <xwalk:result>
+        <xwalk:field-source subfield="name">
+          <xwalk:field-source subfield="family" from="impersonated-depositor.last-name" />
+          <xwalk:field-source subfield="given" from="impersonated-depositor.first-name" />
+        </xwalk:field-source>
+        <xwalk:field-source subfield="email" from="impersonated-depositor.email-address" />
+        <xwalk:field-source subfield="role" value="owner" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-source>
+</xwalk:field-mapping>

@@ -16,3 +16,37 @@ This can be referenced in the harvest crosswalk as:
   <xwalk:field-source from="creation_date" />
 </xwalk:field-mapping>
 ```
+
+## Symplectic actors (depositor/impersonator)
+
+For the EPrint field definition shown below, the field-mapping:
+[symplectic_actors/deposit_field-mapping_sympelctic_actors.xml](symplectic_actors/deposit_field-mapping_sympelctic_actors.xml)
+will add the appropriate details.
+
+
+```perl
+{
+        name => 'symplectic_actors',
+        type => 'compound',
+        fields => [
+                {
+                        sub_name => 'role',
+                        type => 'text',
+                },
+                {
+                        sub_name => 'name',
+                        type => 'name',
+                        hide_honourific => 1,
+                        hide_lineage => 1,
+                        family_first => 1,
+                },
+                {
+                        sub_name => 'email',
+                        type => 'text',
+                        allow_null => 1,
+                },
+        ],
+        multiple => 1,
+        export_as_xml => 0,
+},
+```
