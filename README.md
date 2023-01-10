@@ -59,7 +59,7 @@ This is based on the default REF_CC EPrints module. There are a few parts to it:
 
 1) add the [ref_cc/deposit_field-map.xml](ref_cc/deposit_field-map.xml) to the `<xwalk:field-maps>` element.
 1) add the [ref_cc/deposit_value-map.xml](ref_cc/deposit_value-map.xml) to the `<xwalk:value-maps>` element.
-1) include the field-map in other field-maps - focusing on those used for REF-able items (if your crosswalks use different maps for different itmes):
+1) include the field-map in other field-maps - focusing on those used for REF-able items (if your crosswalks use different maps for different items):
 ```xml
 <xwalk:field-map name="most-types">
   <xwalk:include-field-map name="standard-fields" />
@@ -67,4 +67,4 @@ This is based on the default REF_CC EPrints module. There are a few parts to it:
 </xwalk:field-map>
 
 ```
-1) Test test test ;)
+4) Test test test ;)
