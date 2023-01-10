@@ -1,0 +1,19 @@
+<!-- Used to map all exception types -->
+<xwalk:value-map name="oa-policy-types" matchMode="full">
+  <xwalk:value-mapping from="Access1" to="a" />
+  <xwalk:value-mapping from="Access2" to="b" />
+  <xwalk:value-mapping from="Access3" to="c" />
+  <xwalk:value-mapping from="Deposit1" to="a" />
+  <xwalk:value-mapping from="Deposit2" to="b" />
+  <xwalk:value-mapping from="Deposit3" to="c" />
+  <xwalk:value-mapping from="Deposit4" to="d" />
+  <xwalk:value-mapping from="Deposit5" to="e" />
+  <xwalk:value-mapping from="Deposit6" to="f" />
+  <xwalk:value-mapping from="Deposit7" to="g" />
+  <xwalk:value-mapping from="Other" to="TRUE" />
+  <!-- Tech1 doesn't map. below is correct (2->a etc.) -->
+  <xwalk:value-mapping from="Tech2" to="a" />
+  <xwalk:value-mapping from="Tech3" to="b" />
+  <xwalk:value-mapping from="Tech4" to="c" />
+  <xwalk:otherwise-mapping action="ignore-this-value" />
+</xwalk:value-map>

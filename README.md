@@ -50,3 +50,18 @@ will add the appropriate details.
         export_as_xml => 0,
 },
 ```
+
+## REF_CC - mapping exceptions and details
+This is based on the default REF_CC EPrints module. There are a few parts to it:
+
+1) add the [ref_cc/deposit_field-map.xml](ref_cc/deposit_field-map.xml) to the `<xwalk:field-maps>` element.
+1) add the [ref_cc/deposit_value-map.xml](ref_cc/deposit_value-map.xml) to the `<xwalk:value-maps>` element.
+1) include the field-map in other field-maps - focusing on those used for REF-able items (if your crosswalks use different maps for different itmes):
+```xml
+<xwalk:field-map name="most-types">
+  <xwalk:include-field-map name="standard-fields" />
+  <xwalk:include-field-map name="ref-cc-fields" />
+</xwalk:field-map>
+
+```
+1) Test test test ;)

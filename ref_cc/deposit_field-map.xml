@@ -1,0 +1,81 @@
+<!-- Using XPath. Eeek. The exception text needs to be mapped into hoa_ex_acc_txt / hoa_ex_dep_txt / hoa_ex_tec_txt / hoa_ex_oth_txt accordingly -->
+<xwalk:field-map name="ref-cc-fields">
+  <!-- Access[1-3] -> hoa_ex_acc a-c -->
+  <xwalk:field-mapping to="hoa_ex_acc">
+    <xwalk:if>
+      <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Access</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" value-map="oa-policy-types" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <xwalk:field-mapping to="hoa_ex_acc_txt">
+    <xwalk:if>
+      <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Access</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-comment" select-using="xpath" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <!-- Deposit[1-7] -> hoa_ex_dep a-g -->
+  <xwalk:field-mapping to="hoa_ex_dep">
+    <xwalk:if>
+      <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Deposit</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" value-map="oa-policy-types" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <xwalk:field-mapping to="hoa_ex_dep_txt">
+    <xwalk:if>
+      <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Deposit</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-comment" select-using="xpath" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <!-- Tech1 doesn't map to a hefce technical exception. Tech[2-4] -> hoa_ex_tec a-c -->
+  <xwalk:field-mapping to="hoa_ex_tec">
+    <xwalk:if>
+      <xwalk:condition operator="and">
+        <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Tech</xwalk:condition>
+        <xwalk:condition operator="not">
+          <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="equals">Tech1</xwalk:condition>
+        </xwalk:condition>
+      </xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" value-map="oa-policy-types" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <xwalk:field-mapping to="hoa_ex_tec_txt">
+    <xwalk:if>
+      <xwalk:condition operator="and">
+        <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Tech</xwalk:condition>
+        <xwalk:condition operator="not">
+          <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="equals">Tech1</xwalk:condition>
+        </xwalk:condition>
+      </xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-comment" select-using="xpath" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <!-- Other -> hoa_ex_oth T/F -->
+  <xwalk:field-mapping to="hoa_ex_oth">
+    <xwalk:if>
+      <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Other</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" value-map="oa-policy-types" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+  <xwalk:field-mapping to="hoa_ex_oth_txt">
+    <xwalk:if>
+      <xwalk:condition argument-field="/api:push-object/api:object/api:oa/api:oa-policy-exception-type" select-using="xpath" operator="contains">Other</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source from="/api:push-object/api:object/api:oa/api:oa-policy-exception-comment" select-using="xpath" />
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+</xwalk:field-map>
