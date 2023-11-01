@@ -86,6 +86,10 @@ deposit crosswalk, below the `<xwalk:parameters>` element.
 It will map a 'requested licence' to the document licence field. It will also set a bespoke 'security' value when a deposit is a 'subsequent deposit'.
 **The security value used for this is not standard EPrints, but is provided as an example.**
 
-The value-map in [requested_licence/deposit_value-map.xml](requested_licence/deposit_value-map.xml) should be added to the <xwalk:value-maps>
+The value-map in [requested_licence/deposit_value-map.xml](requested_licence/deposit_value-map.xml) should be added to the `<xwalk:value-maps>`.
+
+**Warning: the options available in the Elements interface only represent the ‘variety’ of the licence (CC-BY, CC-BY-NC etc.), not a specific version – CC-BY v4.
+In the value-map below you will be mapping a variety to a specific version – which may or may not be the correct version.**
+
 
 
