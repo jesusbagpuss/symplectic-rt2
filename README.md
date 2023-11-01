@@ -72,7 +72,7 @@ This is based on the default REF_CC EPrints module. There are a few parts to it:
 
 ## `<xwalk:file-metadata-map>` - adding requested licence to uploaded files
 
-In the 'Repository_Tools_2_Crosswalks_Guide_v1.8.pdf' support document, section 4.5 defines an `<xwalk:file-metadata-map>` element.
+In the *Repository_Tools_2_Crosswalks_Guide_v1.8.pdf* support document, section 4.5 defines an `<xwalk:file-metadata-map>` element.
 
 The guide states that this is only available in the deposit crosswalk, although this *is* now supported in harvest crosswalks too (not sure which 
 Elements version enabled this).
