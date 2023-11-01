@@ -1,0 +1,20 @@
+<!-- see Crosswalk editing guide v1.8, page 29 -->
+<xwalk:file-metadata-map>
+  <xwalk:field-mapping to="content">
+    <xwalk:field-source from="file.version" />
+  </xwalk:field-mapping>
+  <xwalk:field-mapping to="license">
+    <xwalk:field-source from="requested-reuse-licence.short-name" value-map="translate-requested-reuse-licence-short-name" />
+  </xwalk:field-mapping> 
+  <!-- this will set the 'security' when the file is part of a subsequent deposit.
+    If it's part of an initial deposit, no security will be set, so the EPrints 
+    default value for the fiels will result. -->
+  <xwalk:field-mapping to="security">
+    <xwalk:if>
+      <xwalk:condition argument-field="deposit.type" operator="equals">subsequent</xwalk:condition>
+      <xwalk:result>
+        <xwalk:field-source value="staffonly"/>
+      </xwalk:result>
+    </xwalk:if>
+  </xwalk:field-mapping>
+</xwalk:file-metadata-map>

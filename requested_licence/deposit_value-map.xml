@@ -1,0 +1,33 @@
+<!-- 
+  NB Elements allows you to select a licence variant (CC BY, CC BY-NC etc.), but not a full version - CC BY v4
+
+  These values are the ones that match the EPrints3.4 default config.
+  If you have added support for additional licences, add their codes below.
+  EPrints3.4 also lists 'cc_gnu_gpl' and 'cc_gnu_lgpl' which /might/ map to
+  the Elements GPL options
+-->
+<xwalk:value-map name="translate-requested-reuse-licence-short-name" matchMode="full">
+  <xwalk:value-mapping from="CC BY"            to="cc_by_4" />
+  <xwalk:value-mapping from="CC BY-ND"         to="cc_by_nd_4" />
+  <xwalk:value-mapping from="CC BY-NC-SA"      to="cc_by_nc_sa_4" />
+  <xwalk:value-mapping from="CC BY-SA"         to="cc_by_sa_4" />
+  <xwalk:value-mapping from="CC BY-NC"         to="cc_by_nc_4" />
+  <xwalk:value-mapping from="CC BY-NC-ND"      to="cc_by_nc_nd_4" />
+  <xwalk:value-mapping from="CC-Public-Domain" to="cc_public_domain" />
+  <!--
+    <xwalk:value-mapping from="Unknown"          to="" />
+    <xwalk:value-mapping from="CC0"              to="" />
+    <xwalk:value-mapping from="MIT"              to="" />
+    <xwalk:value-mapping from="GPL"              to="" />
+    <xwalk:value-mapping from="GPL-2.0"          to="" />
+    <xwalk:value-mapping from="GPL-3.0"          to="" />
+    <xwalk:value-mapping from="Apache-2.0"       to="" />
+    <xwalk:value-mapping from="MLP-2.0"          to="" />
+    <xwalk:value-mapping from="BSD-3-Clause"     to="" />
+    <xwalk:value-mapping from="OGL"              to="" />
+    <xwalk:value-mapping from="InCopyright-RUU"  to="" />
+    <xwalk:value-mapping from="InCopyright"      to="" />
+    <xwalk:value-mapping from="No Licence"       to="" />
+  -->
+</xwalk:value-map>
+

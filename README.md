@@ -55,6 +55,7 @@ will add the appropriate details.
 ```
 
 ## REF_CC - mapping exceptions and details
+
 This is based on the default REF_CC EPrints module. There are a few parts to it:
 
 1) add the [ref_cc/deposit_field-map.xml](ref_cc/deposit_field-map.xml) to the `<xwalk:field-maps>` element.
@@ -68,3 +69,23 @@ This is based on the default REF_CC EPrints module. There are a few parts to it:
 
 ```
 4) Test test test ;)
+
+## `<xwalk:file-metadata-map>` - adding requested licence to uploaded files
+
+In the 'Repository_Tools_2_Crosswalks_Guide_v1.8.pdf' support document, section 4.5 defines an `<xwalk:file-metadata-map>` element.
+
+The guide states that this is only available in the deposit crosswalk, although this *is* now supported in harvest crosswalks too (not sure which 
+Elements version enabled this).
+
+This part of the crosswalks can be used to control the data being sent when creating an EPrints Document object (Elements file --> EPrints Document).
+There is a default file-metadata-map that exists in the inner-workings of Elements. If this element isn't defined in your crosswalk, this default is used.
+If you define it in your crosswalk, it will be used instead.
+
+The example in [requested_licence/deposit_file-metadata-map.xml](requested_licence/deposit_file-metadata-map.xml) should be added near the top of the 
+deposit crosswalk, below the `<xwalk:parameters>` element.
+It will map a 'requested licence' to the document licence field. It will also set a bespoke 'security' value when a deposit is a 'subsequent deposit'.
+**The security value used for this is not standard EPrints, but is provided as an example.**
+
+The value-map in [requested_licence/deposit_value-map.xml](requested_licence/deposit_value-map.xml) should be added to the <xwalk:value-maps>
+
+
